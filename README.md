@@ -24,7 +24,7 @@
         /* SKRIN 2: Gabungan gambar pattern pixel kecik + gradient di belakangnya */
         body.skrin-dua {
             /* Kita panggil gambar pattern (pastikan nama fail gambar awak betul, contoh: pixel-couple.jpeg) */
-            background: url('pixel-couple.jpeg'), linear-gradient(135deg, #000000 0%, #1a0005 45%, #2a000d 75%, #261a00 100%);
+            background: url('WhatsApp Image 2026-05-25 at 10.18.43 PM.jpeg'), linear-gradient(135deg, #000000 0%, #1a0005 45%, #2a000d 75%, #261a00 100%);
             background-repeat: repeat; /* Biar dia berulang */
             background-position: center;
             
