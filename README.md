@@ -21,7 +21,7 @@
             position: absolute;
             background-color: #ff1a40;
             border-radius: 150% 0 150% 150%;
-            opacity: 0.7;
+            opacity: 0;
             user-select: none;
             pointer-events: none;
             z-index: 1;
@@ -196,7 +196,7 @@
             const bezaMasa = tarikhSekarang.getTime() - tarikhMula.getTime();
             const jumlahHari = Math.floor(bezaMasa / (1000 * 3600 * 24));
             
-            document.getElementById("love-counter").innerText = `Day ${jumlahHari} with you and counting... 🖤`;
+            document.getElementById("love-counter").innerText = `Day ${jumlahHari} with you and counting...`;
         }
 
         // Fungsi utama bila skrin di-klik
