@@ -19,10 +19,6 @@
         #intro-screen {
             text-align: center;
             cursor: pointer;
-            transition: transform 0.2s;
-        }
-        #intro-screen:hover {
-            transform: scale(1.1);
         }
         .heart-emoji {
             font-size: 80px;
@@ -41,29 +37,45 @@
             100% { transform: scale(1); }
         }
 
-        /* Skrin 2: Main Screen (Hati Besar) */
+        /* Skrin 2: Hati Tulisan Nama Azri Besar */
         #main-screen {
             display: none;
             text-align: center;
         }
 
-        /* Animasi Berdegup untuk Hati Besar */
-        .heart-container {
+        /* Kotak Hati & Animasi Berdegup */
+        .heart-text-container {
+            /* Menggunakan Font New Times Roman */
+            font-family: 'Times New Roman', Times, serif; 
+            color: #ff0000; /* Warna merah terang */
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.3;
+            letter-spacing: 2px;
+            display: inline-block;
             animation: heartbeat 1.2s infinite ease-in-out;
+        }
+
+        /* Setiap baris diletakkan dalam blok tengah supaya SIMETRI & TAK SENGET */
+        .line {
+            display: block;
+            text-align: center;
+            white-space: pre;
         }
 
         @keyframes heartbeat {
             0% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+            50% { transform: scale(1.06); }
             100% { transform: scale(1); }
         }
 
-        /* Teks Pesanan Paling Bawah */
+        /* Teks Pesanan Bawah */
         .pesan {
             color: #ffffff;
             font-size: 16px;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 30px;
+            font-family: Arial, sans-serif;
         }
     </style>
 </head>
@@ -75,27 +87,28 @@
     </div>
 
     <div id="main-screen">
-        <div class="heart-container">
-            <svg width="350" height="350" viewBox="0 0 24 24" fill="#ff0000" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                
-                <text x="12" y="10" 
-                      fill="#ffffff" 
-                      font-family="'Times New Roman', Times, serif" 
-                      font-size="3px" 
-                      font-weight="bold" 
-                      text-anchor="middle">AZRI</text>
-            </svg>
+        <div class="heart-text-container">
+            <span class="line">azriazri         azriazri</span>
+            <span class="line">azriazriazri     azriazriazri</span>
+            <span class="line">azriazriazriazriazriazriazriazri</span>
+            <span class="line">azriazriazriazriazriazriazriazri</span>
+            <span class="line">azriazriazriazriazriazriazri</span>
+            <span class="line">azriazriazriazriazriazri</span>
+            <span class="line">azriazriazriazriazri</span>
+            <span class="line">azriazriazriazri</span>
+            <span class="line">azriazriazri</span>
+            <span class="line">azriazri</span>
+            <span class="line">azri</span>
         </div>
-        <div class="pesan">I love you Sayang</div>
+        <div class="pesan">I Love You Sayang <3 </div>
     </div>
 
     <script>
         function bukaKejutan() {
-            // Sorok skrin intro
+            // Sorok intro
             document.getElementById('intro-screen').style.display = 'none';
             
-            // Paparkan skrin hati besar
+            // Paparkan hati nama azri
             document.getElementById('main-screen').style.display = 'block';
         }
     </script>
