@@ -6,7 +6,7 @@
     <style>
         body {
             /* PALET WARNA GELAP PREMIUM: Campuran Hitam, Maroon Gelap, & Deep Purple */
-            background: linear-gradient(135deg, #000000 0%, #1a0007 50%, #0d001a 100%);
+            background: linear-gradient(135deg, #000000 0%, #150005 60%, #2a000a 100%);
             display: flex;
             justify-content: center;
             align-items: center;
