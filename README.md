@@ -3,30 +3,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>&lrm;</title> <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body {
-            /* 1. GAMBAR PIXEL KORANG SEBAGAI BACKGROUND */
-            background: url('WhatsApp Image 2026-05-25 at 10.18.43 PM.jpeg') no-repeat center center fixed;
-            background-size: cover;
-            
+            background-color: #000000; /* Skrin permulaan kekal hitam pekat bersih */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            padding: 0;
             overflow: hidden;
             font-family: Arial, sans-serif;
             position: relative;
         }
 
-        /* 2. OVERLAY HITAM: Memastikan gambar pixel di belakang nampak gelap & estetik */
-        body::before {
+        /* SKRIN KEDUA: Gambar pixel korang akan berulang-ulang macam wallpaper */
+        body.skrin-dua {
+            background: url('pixel-couple.jpeg');
+            background-repeat: repeat; /* Paksa gambar berulang ke seluruh lantai skrin */
+            background-position: center;
+            background-size: 180px; /* Awak boleh ejas nombor ni (contoh: 150px atau 200px) untuk besarkan/kecilkan saiz corak wallpaper tu */
+        }
+
+        /* Overlay hitam 70% di atas wallpaper berulang supaya tulisan tak tenggelam */
+        body.skrin-dua::before {
             content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Menggelapkan gambar sebanyak 70% */
+            background-color: rgba(0, 0, 0, 0.7); 
             z-index: 1;
         }
 
@@ -34,7 +44,7 @@
         #intro-screen {
             text-align: center;
             cursor: pointer;
-            z-index: 10; /* Letak di atas overlay */
+            z-index: 10;
         }
         .heart-emoji {
             font-size: 80px;
@@ -57,10 +67,10 @@
         #main-screen {
             display: none;
             text-align: center;
-            z-index: 10; /* Letak di atas overlay */
+            z-index: 10;
         }
 
-        /* Kotak Hati & Animasi Berdegup */
+        /* Kotak Hati Nama Azri & Animasi Berdegup */
         .heart-text-container {
             font-family: 'Times New Roman', Times, serif; 
             color: #ff0000; /* Warna merah terang menyala */
@@ -70,7 +80,7 @@
             letter-spacing: 2px;
             display: inline-block;
             animation: heartbeat 1.2s infinite ease-in-out;
-            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.6)); /* Glow merah */
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7)); /* Efek glow merah bagi terang */
         }
 
         .line {
@@ -167,9 +177,16 @@
         }
 
         function bukaKejutan() {
+            // Sorok skrin pertama
             document.getElementById('intro-screen').style.display = 'none';
+            
+            // Aktifkan corak wallpaper gambar pixel pada body
+            document.body.classList.add('skrin-dua');
+            
+            // Paparkan skrin kedua
             document.getElementById('main-screen').style.display = 'block';
             
+            // Jalankan teks mesin taip & kaunter hari
             kesanMesinTaip("I Love You Sayang <3", "typewriter-text", 100);
             kiraHari();
         }
@@ -177,4 +194,3 @@
 
 </body>
 </html>
- 
