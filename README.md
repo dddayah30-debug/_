@@ -23,7 +23,7 @@
 
         /* SKRIN 2: Gabungan gambar pattern pixel kecik + gradient di belakangnya */
         body.skrin-dua {
-            background: url('WhatsApp Image 2026-05-25 at 10.18.43 PM.jpeg'), linear-gradient(135deg, #000000 0%, #1a0005 45%, #2a000d 75%, #261a00 100%);
+            background: url('pixel-couple.jpeg'), linear-gradient(135deg, #000000 0%, #1a0005 45%, #2a000d 75%, #261a00 100%);
             background-repeat: repeat;
             background-position: center;
             background-size: 120px, auto; 
@@ -125,30 +125,12 @@
         }
 
         /* GAYA UNTUK HATI-HATI PIXEL BERSEPAH-SEPAH */
-        function taburHati() {
-            const jumlahHati = 25; // Dikurangkan sikit bilangan biar tak terlalu semak
-            
-            // Simbol bentuk hati ala-ala gaya pixel retro (Character Art)
-            const jenisHatiPixel = ['❤', '♥', '❣']; 
-            
-            for (let i = 0; i < jumlahHati; i++) {
-                const hati = document.createElement('div');
-                hati.className = 'floating-heart';
-                
-                // Pilih simbol hati retro secara rawak
-                hati.innerText = jenisHatiPixel[Math.floor(Math.random() * jenisHatiPixel.length)];
-                
-                // Set kedudukan rawak di sekeliling skrin (luar kotak hitam)
-                hati.style.top = Math.random() * 90 + '%';
-                hati.style.left = Math.random() * 95 + '%';
-                
-                // Saiz rawak kecil-kecil comel
-                hati.style.fontSize = (Math.random() * 12 + 14) + 'px';
-                
-                // Kelewatan pergerakan biar nampak natural
-                hati.style.animationDelay = Math.random() * 3 + 's';
-                
-                document.body.appendChild(hati);
+        .floating-heart {
+            position: absolute;
+            z-index: 5; /* Duduk di atas wallpaper, tapi di bawah kotak hitam tengah */
+            opacity: 0.85;
+            animation: floatAnimation 4s infinite ease-in-out;
+            pointer-events: none; /* Biar tak kacau screen kalau tersentuh */
         }
 
         @keyframes floatAnimation {
@@ -226,6 +208,7 @@
                 
                 // Set kelewatan animasi rawak biar tak bergerak serentak
                 hati.style.animationDelay = Math.random() * 3 + 's';
+                
                 document.body.appendChild(hati);
             }
         }
