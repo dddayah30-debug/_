@@ -8,7 +8,7 @@
         }
 
         body {
-            background-color: #000000; /* Skrin permulaan kekal hitam pekat bersih */
+            background-color: #000000; /* Skrin 1 mula dengan hitam pekat kosong */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,25 +20,15 @@
             position: relative;
         }
 
-        /* SKRIN KEDUA: Gambar pixel korang akan berulang-ulang macam wallpaper */
+        /* SKRIN KEDUA: Wallpaper pixel terang 100% tanpa malap */
         body.skrin-dua {
-            background: url('WhatsApp Image 2026-05-25 at 10.18.43 PM.jpeg');
-            background-repeat: repeat; /* Paksa gambar berulang ke seluruh lantai skrin */
+            background: url('pixel-couple.jpeg');
+            background-repeat: repeat;
             background-position: center;
-            background-size: 180px; /* Awak boleh ejas nombor ni (contoh: 150px atau 200px) untuk besarkan/kecilkan saiz corak wallpaper tu */
+            background-size: 250px; /* Boleh ejas saiz corak di sini (contoh: 200px) */
         }
 
-        /* Overlay hitam 70% di atas wallpaper berulang supaya tulisan tak tenggelam */
-        body.skrin-dua::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); 
-            z-index: 1;
-        }
+        /* OVERLAY MALAP DAH DIBUANG SEPENUHNYA DI SINI */
 
         /* Skrin 1: Intro Klik Heart */
         #intro-screen {
@@ -68,19 +58,27 @@
             display: none;
             text-align: center;
             z-index: 10;
+            
+            /* KOTAK PELINDUNG HITAM: Supaya kandungan tengah tak bertindih dengan wallpaper */
+            background-color: rgba(0, 0, 0, 0.85); /* Hitam pekat 85% untuk perlindungan maksima */
+            padding: 35px 25px;
+            border-radius: 20px; /* Buat bucu kotak jadi bulat comel */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); /* Efek bayang mampat di luar kotak */
+            max-width: 90%;
+            width: 400px;
         }
 
         /* Kotak Hati Nama Azri & Animasi Berdegup */
         .heart-text-container {
             font-family: 'Times New Roman', Times, serif; 
             color: #ff0000; /* Warna merah terang menyala */
-            font-size: 16px;
+            font-size: 15px; /* Dikecilkan sikit tona font biar ngam masuk kotak */
             font-weight: bold;
             line-height: 1.3;
             letter-spacing: 2px;
             display: inline-block;
             animation: heartbeat 1.2s infinite ease-in-out;
-            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7)); /* Efek glow merah bagi terang */
+            filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.7)); /* Efek glow merah */
         }
 
         .line {
@@ -91,7 +89,7 @@
 
         @keyframes heartbeat {
             0% { transform: scale(1); }
-            50% { transform: scale(1.06); }
+            50% { transform: scale(1.04); }
             100% { transform: scale(1); }
         }
 
@@ -100,7 +98,7 @@
             color: #ffffff;
             font-size: 18px;
             font-weight: bold;
-            margin-top: 30px;
+            margin-top: 25px;
             font-family: 'Times New Roman', Times, serif;
             letter-spacing: 1px;
             min-height: 24px;
@@ -136,61 +134,5 @@
         <div class="heart-text-container">
             <span class="line">azriazri         azriazri</span>
             <span class="line">azriazriazri     azriazriazri</span>
-            <span class="line">azriazriazriazriazriazriazriazri</span>
-            <span class="line">azriazriazriazriazriazriazriazri</span>
-            <span class="line">azriazriazriazriazriazriazri</span>
-            <span class="line">azriazriazriazriazriazri</span>
-            <span class="line">azriazriazriazriazri</span>
-            <span class="line">azriazriazriazri</span>
-            <span class="line">azriazriazri</span>
-            <span class="line">azriazri</span>
-            <span class="line">azri</span>
-        </div>
-        
-        <div class="pesan" id="typewriter-text"></div>
-        <div class="counter-box" id="love-counter"></div>
-    </div>
-
-    <script>
-        function kesanMesinTaip(teks, elemenId, kelajuan) {
-            let i = 0;
-            let elemen = document.getElementById(elemenId);
-            elemen.innerHTML = "";
-            function taip() {
-                if (i < teks.length) {
-                    elemen.innerHTML += teks.charAt(i);
-                    i++;
-                    setTimeout(taip, kelajuan);
-                }
-            }
-            taip();
-        }
-
-        function kiraHari() {
-            const tarikhMula = new Date("2024-03-03");
-            const tarikhSekarang = new Date();
-            
-            const bezaMasa = tarikhSekarang.getTime() - tarikhMula.getTime();
-            const jumlahHari = Math.floor(bezaMasa / (1000 * 3600 * 24));
-            
-            document.getElementById("love-counter").innerText = `Day ${jumlahHari} with you and counting... 🖤`;
-        }
-
-        function bukaKejutan() {
-            // Sorok skrin pertama
-            document.getElementById('intro-screen').style.display = 'none';
-            
-            // Aktifkan corak wallpaper gambar pixel pada body
-            document.body.classList.add('skrin-dua');
-            
-            // Paparkan skrin kedua
-            document.getElementById('main-screen').style.display = 'block';
-            
-            // Jalankan teks mesin taip & kaunter hari
-            kesanMesinTaip("I Love You Sayang <3", "typewriter-text", 100);
-            kiraHari();
-        }
-    </script>
-
-</body>
-</html>
+            <span class="line">azriazriazriazriazriazri
+ 
