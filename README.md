@@ -34,7 +34,8 @@
         #intro-screen {
             text-align: center;
             cursor: pointer;
-            z-index: 10;
+            z-index: 20;
+            position:relative;
         }
         .heart-emoji {
             font-size: 80px;
@@ -60,7 +61,7 @@
             z-index: 10;
             
             /* KOTAK PELINDUNG HITAM: Supaya kandungan tengah tak bertindih dengan wallpaper */
-            background-color: rgba(0, 0, 0, 0.85); /* Hitam pekat 85% untuk perlindungan maksima */
+            background-color: rgba(0, 0, 0, 0.9); /* Hitam pekat 85% untuk perlindungan maksima */
             padding: 35px 25px;
             border-radius: 20px; /* Buat bucu kotak jadi bulat comel */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); /* Efek bayang mampat di luar kotak */
