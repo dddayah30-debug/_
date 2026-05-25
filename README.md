@@ -22,7 +22,7 @@
 
         /* SKRIN KEDUA: Gambar pixel korang akan berulang-ulang macam wallpaper */
         body.skrin-dua {
-            background: url('pixel-couple.jpeg');
+            background: url('WhatsApp Image 2026-05-25 at 10.18.43 PM.jpeg');
             background-repeat: repeat; /* Paksa gambar berulang ke seluruh lantai skrin */
             background-position: center;
             background-size: 180px; /* Awak boleh ejas nombor ni (contoh: 150px atau 200px) untuk besarkan/kecilkan saiz corak wallpaper tu */
