@@ -22,7 +22,7 @@
 
         /* SKRIN KEDUA: Wallpaper pixel terang 100% tanpa malap */
         body.skrin-dua {
-            background: url('pixel-couple.jpeg');
+            background: url('WhatsApp Image 2026-05-25 at 10.55.21 PM.jpeg');
             background-repeat: repeat;
             background-position: center;
             background-size: 250px; /* Boleh ejas saiz corak di sini (contoh: 200px) */
