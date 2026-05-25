@@ -182,7 +182,7 @@
         }
 
         function kiraHari() {
-            const tarikhMula = new Date("2024-03-03");
+            const tarikhMula = new Date(2024, 2, 3, 0,0,0);
             const tarikhSekarang = new Date();
             
             const bezaMasa = tarikhSekarang.getTime() - tarikhMula.getTime();
