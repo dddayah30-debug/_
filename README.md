@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
@@ -23,12 +24,9 @@
 
         /* SKRIN 2: Gabungan gambar pattern pixel kecik + gradient di belakangnya */
         body.skrin-dua {
-            /* Kita panggil gambar pattern (pastikan nama fail gambar awak betul, contoh: pixel-couple.jpeg) */
             background: url('WhatsApp Image 2026-05-25 at 10.18.43 PM.jpeg'), linear-gradient(135deg, #000000 0%, #1a0005 45%, #2a000d 75%, #261a00 100%);
-            background-repeat: repeat; /* Biar dia berulang */
+            background-repeat: repeat;
             background-position: center;
-            
-            /* Taktik nak kasi gambar pixel tu jadi bersaiz KECIL: kita set 120px sahaja! */
             background-size: 120px, auto; 
         }
 
@@ -63,19 +61,20 @@
             z-index: 10;
             position: relative;
             
-            /* KOTAK HITAM: Supaya nama azri bertindih di atas warna hitam pekat, bukan direct atas gambar */
+            /* KOTAK HITAM: Dah dibaiki saiz untuk phone + paksa duduk center */
             background-color: rgba(0, 0, 0, 0.9); 
             padding: 35px 25px;
             border-radius: 20px; 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); 
             max-width: 90%;
-            width: 400px;
+            width: 380px;
+            margin: auto; /* Paksa kotak duduk tengah skrin phone & laptop */
         }
 
         /* Kotak Hati & Animasi Berdegup */
         .heart-text-container {
             font-family: 'Times New Roman', Times, serif; 
-            color: #ff0000; /* Warna merah terang menyala */
+            color: #ff0000;
             font-size: 15px;
             font-weight: bold;
             line-height: 1.3;
@@ -124,6 +123,21 @@
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(10px); }
             100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* GAYA UNTUK HATI-HATI PIXEL BERSEPAH-SEPAH */
+        .floating-heart {
+            position: absolute;
+            z-index: 5; /* Duduk di atas wallpaper, tapi di bawah kotak hitam tengah */
+            opacity: 0.85;
+            animation: floatAnimation 4s infinite ease-in-out;
+            pointer-events: none; /* Biar tak kacau screen kalau tersentuh */
+        }
+
+        @keyframes floatAnimation {
+            0% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.1); }
+            100% { transform: translateY(0) scale(1); }
         }
     </style>
 </head>
@@ -178,14 +192,34 @@
             document.getElementById("love-counter").innerText = `Day ${jumlahHari} with you and counting...`;
         }
 
+        // FUNGSI AUTOMATIK UNTUK TABUR HATI BERSEPAH SECARA RAWAK
+        function taburHati() {
+            const jumlahHati = 30; // Awak boleh tambah atau kurang nombor ni ikut suka
+            for (let i = 0; i < jumlahHati; i++) {
+                const hati = document.createElement('div');
+                hati.className = 'floating-heart';
+                hati.innerText = '❤️';
+                
+                // Set kedudukan rawak di seluruh skrin
+                hati.style.top = Math.random() * 90 + '%';
+                hati.style.left = Math.random() * 95 + '%';
+                
+                // Set saiz rawak (ada kecil, ada sederhana)
+                hati.style.fontSize = (Math.random() * 14 + 12) + 'px';
+                
+                // Set kelewatan animasi rawak biar tak bergerak serentak
+                hati.style.animationDelay = Math.random() * 3 + 's';
+                
+                document.body.appendChild(hati);
+            }
+        }
+
         function bukaKejutan() {
             document.getElementById('intro-screen').style.display = 'none';
-            
-            // Tambah kelas skrin-dua untuk panggil wallpaper pixel kecik + gradient serentak
             document.body.classList.add('skrin-dua');
-            
             document.getElementById('main-screen').style.display = 'block';
             
+            taburHati(); // Panggil fungsi tabur hati bersepah
             kesanMesinTaip("I Love You Sayang <3", "typewriter-text", 100);
             kiraHari();
         }
