@@ -226,7 +226,6 @@
                 
                 // Set kelewatan animasi rawak biar tak bergerak serentak
                 hati.style.animationDelay = Math.random() * 3 + 's';
-                
                 document.body.appendChild(hati);
             }
         }
