@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +24,7 @@
 
         /* SKRIN 2: Gabungan gambar pattern pixel kecik + gradient di belakangnya */
         body.skrin-dua {
-            background: url('pixel-couple.jpeg'), linear-gradient(135deg, #000000 0%, #1a0005 45%, #2a000d 75%, #261a00 100%);
+            background: url('WhatsApp Image 2026-05-25 at 10.18.43 PM.jpeg'), linear-gradient(135deg, #000000 0%, #1a0005 45%, #2a000d 75%, #261a00 100%);
             background-repeat: repeat;
             background-position: center;
             background-size: 120px, auto; 
