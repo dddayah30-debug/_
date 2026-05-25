@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
@@ -5,7 +6,8 @@
     <title>Sistem Loading...</title>
     <style>
         body {
-            background-color: #000000; /* Latar belakang hitam pekat */
+            /* PALET WARNA GELAP PREMIUM: Campuran Hitam, Maroon Gelap, & Deep Purple */
+            background: linear-gradient(135deg, #000000 0%, #1a0007 50%, #0d001a 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -14,31 +16,6 @@
             overflow: hidden;
             font-family: Arial, sans-serif;
             position: relative;
-        }
-
-        /* 1. ANIMASI KELOPAK MAWAR GUGUR */
-        .petal {
-            position: absolute;
-            background-color: #ff1a40;
-            border-radius: 150% 0 150% 150%;
-            opacity: 0;
-            user-select: none;
-            pointer-events: none;
-            z-index: 1;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-10vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.7; }
-            100% {
-                transform: translateY(105vh) rotate(360deg);
-                opacity: 0;
-            }
         }
 
         /* Skrin 1: Intro Klik Heart */
@@ -74,13 +51,15 @@
         /* Kotak Hati & Animasi Berdegup */
         .heart-text-container {
             font-family: 'Times New Roman', Times, serif; 
-            color: #ff0000; /* Warna merah terang */
+            color: #ff0000; /* Warna merah terang menyala */
             font-size: 16px;
             font-weight: bold;
             line-height: 1.3;
             letter-spacing: 2px;
             display: inline-block;
             animation: heartbeat 1.2s infinite ease-in-out;
+            /* Tambah efek glow sikit bagi bangkit warna merah */
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.4));
         }
 
         .line {
@@ -95,7 +74,7 @@
             100% { transform: scale(1); }
         }
 
-        /* 2. EFEK MESIN TAIP UNTUK LUAHAN */
+        /* EFEK MESIN TAIP UNTUK LUAHAN */
         .pesan {
             color: #ffffff;
             font-size: 18px;
@@ -103,10 +82,10 @@
             margin-top: 30px;
             font-family: 'Times New Roman', Times, serif;
             letter-spacing: 1px;
-            min-height: 24px; /* Elak teks melompat masa menaip */
+            min-height: 24px;
         }
 
-        /* 3. KAUNTER HARI AUTOMATIK */
+        /* KAUNTER HARI AUTOMATIK */
         .counter-box {
             margin-top: 15px;
             color: #ff4d6d;
@@ -116,7 +95,7 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             opacity: 0;
-            animation: fadeIn 1s ease-in-out 3s forwards; /* Keluar selepas typewriter selesai */
+            animation: fadeIn 1s ease-in-out 3s forwards;
         }
 
         @keyframes fadeIn {
@@ -148,31 +127,10 @@
         </div>
         
         <div class="pesan" id="typewriter-text"></div>
-
         <div class="counter-box" id="love-counter"></div>
     </div>
 
     <script>
-        // Fungsi untuk hidupkan hujan kelopak mawar
-        function buatHujanMawar() {
-            const jumlahKelopak = 20;
-            for (let i = 0; i < jumlahKelopak; i++) {
-                let petal = document.createElement('div');
-                petal.className = 'petal';
-                
-                // Set saiz rawak untuk rupa natural
-                let saiz = Math.random() * 10 + 8;
-                petal.style.width = saiz + 'px';
-                petal.style.height = (saiz * 1.2) + 'px';
-                
-                petal.style.left = Math.random() * 100 + 'vw';
-                petal.style.animationDuration = (Math.random() * 4 + 4) + 's'; 
-                petal.style.animationDelay = (Math.random() * 5) + 's';
-                document.body.appendChild(petal);
-            }
-        }
-
-        // Fungsi efek mesin taip (Typewriter)
         function kesanMesinTaip(teks, elemenId, kelajuan) {
             let i = 0;
             let elemen = document.getElementById(elemenId);
@@ -187,28 +145,20 @@
             taip();
         }
 
-        // Fungsi kira hari automatik dari tarikh 3/3/2024
         function kiraHari() {
             const tarikhMula = new Date("2024-03-03");
             const tarikhSekarang = new Date();
             
-            // Pengiraan beza hari
             const bezaMasa = tarikhSekarang.getTime() - tarikhMula.getTime();
             const jumlahHari = Math.floor(bezaMasa / (1000 * 3600 * 24));
             
             document.getElementById("love-counter").innerText = `Day ${jumlahHari} with you and counting...`;
         }
 
-        // Fungsi utama bila skrin di-klik
         function bukaKejutan() {
-            // Sorok skrin intro
             document.getElementById('intro-screen').style.display = 'none';
-            
-            // Paparkan skrin utama
             document.getElementById('main-screen').style.display = 'block';
             
-            // Jalankan ketiga-tiga fungsi serentak!
-            buatHujanMawar();
             kesanMesinTaip("I Love You Sayang <3", "typewriter-text", 100);
             kiraHari();
         }
