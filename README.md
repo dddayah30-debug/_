@@ -5,7 +5,7 @@
     <title>&lrm;</title> <style>
         body {
             /* 1. GAMBAR PIXEL KORANG SEBAGAI BACKGROUND */
-            background: url('pixel-couple.png') no-repeat center center fixed;
+            background: url('WhatsApp Image 2026-05-25 at 10.18.43 PM.jpeg') no-repeat center center fixed;
             background-size: cover;
             
             display: flex;
