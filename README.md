@@ -2,11 +2,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Loading...</title>
-    <style>
+    <title>&lrm;</title> <style>
         body {
-            /* PALET WARNA GELAP PREMIUM: Campuran Hitam, Maroon Gelap, & Deep Purple */
-            background: linear-gradient(135deg, #000000 0%, #150005 60%, #2a000a 100%);
+            /* 1. GAMBAR PIXEL KORANG SEBAGAI BACKGROUND */
+            background: url('pixel-couple.png') no-repeat center center fixed;
+            background-size: cover;
+            
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,11 +18,23 @@
             position: relative;
         }
 
+        /* 2. OVERLAY HITAM: Memastikan gambar pixel di belakang nampak gelap & estetik */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Menggelapkan gambar sebanyak 70% */
+            z-index: 1;
+        }
+
         /* Skrin 1: Intro Klik Heart */
         #intro-screen {
             text-align: center;
             cursor: pointer;
-            z-index: 10;
+            z-index: 10; /* Letak di atas overlay */
         }
         .heart-emoji {
             font-size: 80px;
@@ -44,7 +57,7 @@
         #main-screen {
             display: none;
             text-align: center;
-            z-index: 10;
+            z-index: 10; /* Letak di atas overlay */
         }
 
         /* Kotak Hati & Animasi Berdegup */
@@ -57,8 +70,7 @@
             letter-spacing: 2px;
             display: inline-block;
             animation: heartbeat 1.2s infinite ease-in-out;
-            /* Tambah efek glow sikit bagi bangkit warna merah */
-            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.4));
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.6)); /* Glow merah */
         }
 
         .line {
@@ -151,7 +163,7 @@
             const bezaMasa = tarikhSekarang.getTime() - tarikhMula.getTime();
             const jumlahHari = Math.floor(bezaMasa / (1000 * 3600 * 24));
             
-            document.getElementById("love-counter").innerText = `Day ${jumlahHari} with you and counting...`;
+            document.getElementById("love-counter").innerText = `Day ${jumlahHari} with you and counting... 🖤`;
         }
 
         function bukaKejutan() {
@@ -165,5 +177,4 @@
 
 </body>
 </html>
-          
-           
+ 
