@@ -1,13 +1,16 @@
-<!DOCTYPE html>
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Loading...</title>
     <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body {
-            /* PALET WARNA GELAP PREMIUM: Campuran Hitam, Maroon Gelap*/
-           background: linear-gradient(135deg, #000000 0%, #1a0005 45%, #2a000d 75%, #261a00 100%);
+            /* SKRIN 1: Hanya keluar gradient maroon + hitam + emas sahaja */
+            background: linear-gradient(135deg, #000000 0%, #1a0005 45%, #2a000d 75%, #261a00 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,11 +21,23 @@
             position: relative;
         }
 
+        /* SKRIN 2: Gabungan gambar pattern pixel kecik + gradient di belakangnya */
+        body.skrin-dua {
+            /* Kita panggil gambar pattern (pastikan nama fail gambar awak betul, contoh: pixel-couple.jpeg) */
+            background: url('pixel-couple.jpeg'), linear-gradient(135deg, #000000 0%, #1a0005 45%, #2a000d 75%, #261a00 100%);
+            background-repeat: repeat; /* Biar dia berulang */
+            background-position: center;
+            
+            /* Taktik nak kasi gambar pixel tu jadi bersaiz KECIL: kita set 120px sahaja! */
+            background-size: 120px, auto; 
+        }
+
         /* Skrin 1: Intro Klik Heart */
         #intro-screen {
             text-align: center;
             cursor: pointer;
-            z-index: 10;
+            z-index: 20;
+            position: relative;
         }
         .heart-emoji {
             font-size: 80px;
@@ -46,20 +61,28 @@
             display: none;
             text-align: center;
             z-index: 10;
+            position: relative;
+            
+            /* KOTAK HITAM: Supaya nama azri bertindih di atas warna hitam pekat, bukan direct atas gambar */
+            background-color: rgba(0, 0, 0, 0.9); 
+            padding: 35px 25px;
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); 
+            max-width: 90%;
+            width: 400px;
         }
 
         /* Kotak Hati & Animasi Berdegup */
         .heart-text-container {
             font-family: 'Times New Roman', Times, serif; 
             color: #ff0000; /* Warna merah terang menyala */
-            font-size: 16px;
+            font-size: 15px;
             font-weight: bold;
             line-height: 1.3;
             letter-spacing: 2px;
             display: inline-block;
             animation: heartbeat 1.2s infinite ease-in-out;
-            /* Tambah efek glow sikit bagi bangkit warna merah */
-            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.4));
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7));
         }
 
         .line {
@@ -70,7 +93,7 @@
 
         @keyframes heartbeat {
             0% { transform: scale(1); }
-            50% { transform: scale(1.06); }
+            50% { transform: scale(1.04); }
             100% { transform: scale(1); }
         }
 
@@ -79,7 +102,7 @@
             color: #ffffff;
             font-size: 18px;
             font-weight: bold;
-            margin-top: 30px;
+            margin-top: 25px;
             font-family: 'Times New Roman', Times, serif;
             letter-spacing: 1px;
             min-height: 24px;
@@ -152,11 +175,15 @@
             const bezaMasa = tarikhSekarang.getTime() - tarikhMula.getTime();
             const jumlahHari = Math.floor(bezaMasa / (1000 * 3600 * 24));
             
-            document.getElementById("love-counter").innerText = `Day ${jumlahHari} with you and counting... 🖤`;
+            document.getElementById("love-counter").innerText = `Day ${jumlahHari} with you and counting...`;
         }
 
         function bukaKejutan() {
             document.getElementById('intro-screen').style.display = 'none';
+            
+            // Tambah kelas skrin-dua untuk panggil wallpaper pixel kecik + gradient serentak
+            document.body.classList.add('skrin-dua');
+            
             document.getElementById('main-screen').style.display = 'block';
             
             kesanMesinTaip("I Love You Sayang <3", "typewriter-text", 100);
